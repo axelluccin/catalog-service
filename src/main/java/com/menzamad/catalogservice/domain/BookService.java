@@ -32,7 +32,13 @@ public class BookService {
 
     public Book editBookDetails(String isbn, Book book) {
         return bookRepository.findByIsbn(isbn).map(existingBook -> {
-            Book bootToUpdate = new Book(existingBook.isbn(), book.title(), book.author(), book.price());
+            Book bootToUpdate = new Book(
+                    existingBook.id(),
+                    existingBook.isbn(),
+                    book.title(), book.author(),
+                    book.price(), existingBook.createdDate(),
+                    existingBook.lastModifiedDate(),
+                    existingBook.version());
             return bookRepository.save(bootToUpdate);
         }).orElseGet(() -> addBookToCatalog(book));
     }

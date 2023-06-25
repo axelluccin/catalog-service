@@ -3,7 +3,6 @@ package com.menzamad.catalogservice.web;
 import com.menzamad.catalogservice.domain.Book;
 import com.menzamad.catalogservice.domain.BookService;
 import jakarta.validation.Valid;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.http.HttpStatus.CREATED;
